@@ -5,10 +5,12 @@ const rotaPedido = new Router();
 const pedidoCtrl = new PedidoCtrl();
 
 rotaPedido
+.get('/', pedidoCtrl.consultarTodos)
 .get('/:termo', pedidoCtrl.consultar)
-.post('/', pedidoCtrl.gravar);
+.post('/', pedidoCtrl.gravar)
+.put('/', pedidoCtrl.atualizar)
+.delete('/', pedidoCtrl.excluir);
 //.patch('/', pedidoCtrl.atualizar)
 //.put('/', pedidoCtrl.atualizar)
-//.delete('/', pedidoCtrl.excluir);
 
 export default rotaPedido;

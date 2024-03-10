@@ -83,13 +83,19 @@ export default class Pedido {
     }
 
     async atualizar() {
-        //const pedidoDAO = new PedidoDAO();
-        //await pedidoDAO.alterar(this);
+        const pedidoDAO = new PedidoDAO();
+        await pedidoDAO.atualizar(this);
     }
 
-    async apagar() {
-        //const pedidoDAO = new PedidoDAO();
-        //await pedidoDAO.excluir(this);
+    async excluir() {
+        const pedidoDAO = new PedidoDAO();
+        await pedidoDAO.excluir(this);
+    }
+
+    async consultarTodos() {
+        const pedidoDAO = new PedidoDAO();
+        const listaPedidos = await pedidoDAO.consultarTodos();
+        return listaPedidos;
     }
 
     async consultar(termoBusca) {
@@ -97,5 +103,4 @@ export default class Pedido {
         const listaPedidos = await pedidoDAO.consultar(termoBusca);
         return listaPedidos;
     }
-    
 }
