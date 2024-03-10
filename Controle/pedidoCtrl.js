@@ -175,10 +175,17 @@ export default class PedidoCtrl {
             if (!isNaN(termo)) {
                 const pedido = new Pedido(0);
                 pedido.consultar(termo).then((listaPedidos) => {
-                    resposta.status(200).json({
-                        "status": true,
-                        "listaPedidos": listaPedidos
-                    })
+                    if(listaPedidos.length > 0){
+                        resposta.status(200).json({
+                            "status": true,
+                            "listaPedidos": listaPedidos
+                        })
+                    }else{
+                        resposta.status(200).json({
+                            "status": false,
+                            "mensagem": "Código de Pedido inválido"
+                        })
+                    }
                 })
                     .catch((erro) => {
                         resposta.status(500).json({

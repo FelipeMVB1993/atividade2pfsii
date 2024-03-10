@@ -30,7 +30,7 @@ app.use('/login',rotaLogin);
 //verificarAcesso passa a ser middleware = camada do meio
 app.use('/autor',verificarAcesso,rotaAutor);
 app.use('/livro',verificarAcesso,rotaLivro);
-app.use('/pedido',rotaPedido);
+app.use('/pedido',verificarAcesso,rotaPedido);
 
 app.listen(porta, host, ()=>{
     console.log(`Servidor escutando na porta ${host}:${porta}.`);
